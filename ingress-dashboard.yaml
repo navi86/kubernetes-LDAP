@@ -4,7 +4,6 @@ items:
   kind: Ingress
   metadata:
     annotations:
-      nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
       nginx.ingress.kubernetes.io/ssl-redirect: "false"
     name: dashboard
     namespace: auth
@@ -19,6 +18,8 @@ items:
         - backend:
             serviceName: keycloak-proxy
             servicePort: 80
+    tls:
+    - secretName: dex.tls 
   status:
     loadBalancer: {}
 kind: List

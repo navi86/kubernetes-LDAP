@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: keycloak-proxy
+  selfLink: /api/v1/namespaces/auth/services/keycloak-proxy
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: keycloak-proxy
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    name: keycloak-proxy
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

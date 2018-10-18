@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: dex
+  selfLink: /api/v1/namespaces/auth/services/dex
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: dex
+    port: 5556
+    protocol: TCP
+    targetPort: 5556
+  selector:
+    app: dex
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}

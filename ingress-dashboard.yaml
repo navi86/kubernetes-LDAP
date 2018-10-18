@@ -1,0 +1,27 @@
+apiVersion: v1
+items:
+- apiVersion: extensions/v1beta1
+  kind: Ingress
+  metadata:
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+      nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    name: dashboard
+    namespace: auth
+    resourceVersion: "29475531"
+    selfLink: /apis/extensions/v1beta1/namespaces/auth/ingresses/authenticate
+    uid: 8e0d6e53-c7e1-11e8-ae3e-0050569d1a52
+  spec:
+    rules:
+    - host: k8s-dashboard.example.org
+      http:
+        paths:
+        - backend:
+            serviceName: keycloak-proxy
+            servicePort: 80
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

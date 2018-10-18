@@ -1,0 +1,20 @@
+apiVersion: v1
+data:
+  config.yaml: |
+    debug: True
+    client_id: "loginapp"
+    client_secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
+    issuer_url: "https://dex-k8s.example.org/dex"
+    issuer_root_ca: "/etc/ssl/ca.pem"
+    redirect_url: "https://login-k8s.example.org/callback"
+    listen: "https://0.0.0.0:5555"
+    tls_cert: "/etc/loginapp/tls/tls.crt"
+    tls_key: "/etc/loginapp/tls/tls.key"
+    disable_choices: false
+    extra_scopes: "groups"
+    app_name: "Kubernetes Auth"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: loginapp
+  selfLink: /api/v1/namespaces/auth/configmaps/loginapp
